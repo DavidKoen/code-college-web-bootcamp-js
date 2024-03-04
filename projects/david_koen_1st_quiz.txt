@@ -1,0 +1,456 @@
+r1. Choose the correct answer:
+
+	A. var is global scoped.
+	B. var is block scoped.
+
+answer: A (1 mark)
+
+2. Choose the correct answer:
+
+	A. let is global scoped.
+	B. let is block scoped.
+
+answer: B (1 mark)
+
+3. To prevent errors related to var variables. Place the follwing at the top of your code: Choose the correct answer.
+
+	A. "use stricly";
+	B. "use strict code";
+        C. "use strict";
+
+answer: C (1 mark)
+
+4. Choose all the correct statement about variables:
+
+	A. variable names should begin with lower case.
+	B. variable names can contain spaces.
+	C. variable names can contain underscores.
+
+answer: A B (0 marks)
+ 
+5. Javascript has seven primitive types. They are the following:
+
+	A.  String, Number, BigInt, Boolean, Symbol.
+	B.  String, Number, BigInt, Boolean, Array.
+
+answer: A (1 mark)
+
+6. Which template string is correct to get the output:
+	"Let's learn Python"
+
+	A. let language = "Python";
+	   let message = `Let's learn ${language}`;
+	   console.log(message);
+
+	B. let language = "Python";
+           let message = "Let's learn ${language}";
+           console.log(message);
+answer: A (1 mark)
+
+
+7. The following is a BigInt number:
+
+	A. 90071992547409920
+	B. 90071992547409920n
+
+answer: A (0 mark)
+
+8. let bigNr = 90071992547409920n;
+   let intNr = 20; 
+   let result = bigNr + intNr;
+
+   Choose the correct statement for the above:
+
+	A.  You can mix mix BigInt and other types. There will be no error.
+             
+
+	B. You can only operate on BigInt with other BigInts.
+           You will get the following errorUncaught TypeError: 
+         	  Cannot mix BigInt and other types, use explicit conversions
+
+answer: B (1 mark)
+
+9.let nr1 = 2;
+  let nr2 = "2";
+  console.log(nr1 + nr2);
+
+	A. the output will be "22".
+	B. The output will be 4.
+
+answer: A (1 mark)
+
+10. let stringNum = "2".
+    To cast thisstri ng number to a number, use the following:
+
+	A. let num = Int(stringNum);
+
+	B. let num = number(stringNum);
+	
+	C. let num = Number(stringNum);
+
+answer: C (1 mark)
+
+11. let x = 2;
+    let y = 4;
+    How would you get x to the power of y?
+
+	A. let result = x * y;
+	   result will be 16.
+
+	B. let result = x ** y;
+           result will be 16
+
+	C. B. let result = x ** y;
+           result will be 8.
+
+answer: B (1 mark)
+           
+12. let nr3 = 8;
+    let nr4 = 2;
+
+    To get the remainder:
+
+	A. let result = nr3 % nr4;
+           result will be 0;
+
+	B let result = nr3 / nr4;
+           result will be 0;
+
+answer: A (1 mark)
+
+13. let nr1 = 4;
+    console.log(++nr1);
+
+	A. output will be 4
+	B. output will be 5
+
+answer: B (1 mark)
+
+14. let nr1 = 4;
+    console.log(nr1--);
+
+	A. output will be 4
+	B. output will be 3
+
+answer: A (1 mark)
+
+15. let x = 1;
+    let y = 2;
+    let z = 3;
+    console.log(x < y && y < z);
+
+	A. output will be false;
+	B. output will be true
+
+answer: B (1 mark)
+
+16. let x = 1;
+    let y = 2;
+    let z = 3;
+    console.log(x > y || y > z);
+
+	A. output will be false;
+	B. output will be true
+
+answer: A (1 mark)
+
+17. let x = 7;
+    let y = 2;
+    console.log(!(x < y));
+
+	A. output will be false;
+	B. output will be true
+
+answer: B (1 mark)
+
+18. cars = ["Toyota", "Renault", "Volkswagen"];
+    To get the element at the last index:Choose all that apply
+
+	A. console.log(cars[2]);
+	B. console.log(cars[]3);	
+	C. console.log(cars[cars.length - 1]);
+	D. console.log(cars[cars.length]);
+
+answer: A C (1 mark)
+
+19. favoriteFruits = ["grapefruit", "orange", "lemon"];
+    To add an element to the back:
+
+	A.favoriteFruits.shift("tangerine");
+	B.favoriteFruits.push("tangerine");
+	C.favoriteFruits.pop("tangerine");
+
+answer: B (1 mark)
+
+20. favoriteFruits = ["grapefruit", "orange", "lemon"];
+    To add an element to the front:
+
+	A.favoriteFruits.shift("tangerine");
+	B.favoriteFruits.unshift("tangerine");
+	C.favoriteFruits.push("tangerine");
+
+answer: B (1 mark)
+
+21. favoriteFruits = ["grapefruit", "orange", "lemon"];
+    To remove an element at the front:
+
+	A.favoriteFruits.shift("tangerine");
+	B.favoriteFruits.shift();
+	C.favoriteFruits.pop();
+
+answer: B (1 mark)
+
+22. favoriteFruits = ["grapefruit", "orange", "lemon"];
+    To remove an element at the back:
+
+	A.favoriteFruits.shift("tangerine");
+	B.favoriteFruits.shift();
+	C.favoriteFruits.pop();
+
+answer: C (1 mark)
+
+23. let arrOfShapes = ["circle", "triangle", "rectangle", "pentagon"];
+    arrOfShapes.splice(1, 0, "square", "trapezoid");
+    console.log(arrOfShapes);
+
+	A. output will be ["square","trapezoid,"circle", "triangle", "rectangle", "pentagon"];
+	B. output will be ["circle","square","trapezoid, "triangle", "rectangle", "pentagon"];
+
+answer: B (1 mark)
+
+24. let arrOfShapes = ["circle", "triangle", "rectangle", "pentagon"];
+    arrOfShapes.splice(1, 1, "square", "trapezoid");
+    console.log(arrOfShapes);
+
+	A. output will be ["square","trapezoid,"circle", "triangle", "rectangle", "pentagon"];
+	B. output will be ["circle","square","trapezoid, "rectangle", "pentagon"];
+        C. output will be ["circle","square","trapezoid, "rectangle"];
+
+answer: C (0 marks)
+
+25. let someValues1 = [1, 2, 3];
+    let someValues2 = [4, 5, 6];
+    let someValues3 = [7, 8, 9];
+    let arrOfArrays2 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+	Find the number 8:
+
+	A. let value1 = arrOfArrays[0][1];
+	B. let value1 = arrOfArrays[2][1];
+	C. let value1 = arrOfArrays[3][2];
+
+answer: B (1 mark)
+
+26. let addresses = [{
+                      street: "2nd street",
+ 		      number: "123",
+                      zipcode: "33116",
+                      city: "Miami",
+                      state: "Florida"
+                     },
+                     {
+                      street: "1st West avenue",
+                      number: "5",
+                      zipcode: "75001",
+                      city: "Addison",
+                      state: "Texas"
+                     }];
+
+	Find "Addison"
+
+answer: addresses[1].city (1 mark)
+
+27.  What will be outputted to the console in this instance?
+     const q = ' 2';
+     switch (q) {
+       case '1':
+        answer = "one";
+        break;
+       case 1:
+        answer = 1;
+        break;
+       case 2:
+        answer = "this is the one";
+        break;
+      default:
+       answer = "not working";
+      }
+      console.log(answer);
+
+answer: not working (1 mark)
+
+28.  What will be outputted to the console in this instance?
+     const q = 2;
+     switch (q) {
+       case '1':
+        answer = "one";
+        break;
+       case 1:
+        answer = 1;
+        break;
+       case '2':
+        answer = "this is the one";
+        break;
+      default:
+       answer = "not working";
+      }
+      console.log(answer);
+
+answer: not working (1 mark)
+
+29. What is the expected output for the following code?
+    let step = 2;
+    for (let i = 0; i < 1000; i += step) {
+       if (i > 10) {
+          break;
+          }
+      console.log(i);
+     }
+
+answer: 0 2 4 6 8 10 (1 mark)
+
+
+30. What is the final value for myArray, and what is expected in the console?
+    const myArray = [1,5,7];
+    for(el of myArray){
+      console.log(Number(el));
+      el = Number(el) + 2;
+      console.log(el);
+     }
+    console.log(myArray);
+
+answer: final value is: [1, 5, 7]
+answer: console logs: 1 3 5 7 7 9 (1 mark) 
+
+31.  What value is output into the console?
+    (function () {
+     console.log("Let's play ");
+     })();
+     (function () {
+      return "Chess and"
+     })();
+     let result = (function () {
+     let game2 = "Dominoes";
+     return game2;
+     })();
+     console.log(result);
+     (function (score) {
+      console.log("My score was " + score);
+     })(100);
+
+answer: 
+Let's play
+Dominoes
+My score was 100 (1 mark)
+
+32. What will be output to the console?
+	let test = (num) => {num * 2};
+	console.log(test(14));
+
+answer: 28 (0 marks) 
+
+33. What will be output to the console? 
+    let addFive = (num) => num + 2;
+    console.log(addFive(14));
+
+answer: 16 (1 mark)
+
+34. Change the follwing to a ternary operator:
+
+let allowed;
+let age = Number(prompt("What is your age?"));
+   if (age > 12) {
+     allowed = true;
+     }else {
+        allowed = false;
+     }
+alert(`Are you allowed in? ${allowed}`);  
+
+answer: Are you allowed in? true    				
+									2 points (1 mark)
+
+35. class Person {
+ constructor(firstname, lastname) {
+ this.firstname = firstname;
+ this.lastname = lastname;
+ }
+}
+
+Create three people objects from the person class and print their names to the console.
+
+answer: 
+
+let personOne = new Person("David", "Koen");
+let personTwo = new Person("Ben", "Benson");
+let personThree = new Person("Bob", "Builder");
+
+
+									2 points (1 mark)
+
+37. Create a Car class with a contructor for properties make.model,year. Create two cars from this class and print their information.
+
+answer: 
+
+class Cars {
+constructor(make, model, year) {
+this.make = make;
+this.model = model;
+this.year = year
+}
+}
+
+let Hyundai = new Cars("Hyundai", "Elantra", 2002);
+let Maz = new Cars("Mazda", "Sting", 2001);
+
+
+									2 points. (2 mark)
+
+38. Try giving it a drive() method that prints "Driving my " + this.make + " car"; 
+
+answer:
+
+class Cars {
+constructor(make, model, year) {
+this.make = make;
+this.model = model;
+this.year = year
+}
+
+drive() {
+	return "Driving my " + this.make + " car";
+}
+
+} (1 mark)
+
+39. Create an array of 10 guestnames.
+    create a prompt that ask for a person's name.
+    call a function that you must create that accepts a name and loops through your guests array list using a for of loop to return  if the person is allowed in.
+    use an alert to give the result.
+									5 points
+answer: 
+
+let names = ["bob", "jeff", "jade", "nick", "steve", "jason", "billy", "phil", "jake", "kate"];
+
+let question = prompt("Name a person?");
+
+function myFunc() {
+    for (name of names) {
+        if (question === name) {
+            alert("You are allowed in.");
+            break;
+        } else {
+            alert("Not allowed");
+            break;
+}
+
+}
+
+}
+
+myFunc() (5 marks)
+
+
+									5 points
+
+
+TOTAL 34/45 (75.5%)
