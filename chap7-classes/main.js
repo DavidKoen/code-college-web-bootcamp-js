@@ -217,45 +217,78 @@ based on this Vehicle class, for example, boat, car, bicycle, and motorcycle. */
 
 // Employee tracking app
 
-class Employee {
-    constructor(firstNameInput, lastNameInput, yearsInput) {
-        this.firstname = firstNameInput;
-        this.surname = lastNameInput;
-        this.years = yearsInput;
-    }
-}
+// class Employee {
+//     constructor(firstNameInput, lastNameInput, yearsInput) {
+//         this.firstname = firstNameInput;
+//         this.surname = lastNameInput;
+//         this.years = yearsInput;
+//     }
+// }
 
-let employArr = [
-    {
-        firstName: "Bob",
-        lastName: "Builder",
-        workYears: 4
-    },
-    {
-        firstName: "Nick",
-        lastName: "Nickle",
-        workYears: 2
-    }
-];
+// let employArr = [
+//     {
+//         firstName: "Bob",
+//         lastName: "Builder",
+//         workYears: 4
+//     },
+//     {
+//         firstName: "Nick",
+//         lastName: "Nickle",
+//         workYears: 2
+//     }
+// ];
 
-Employee.prototype.details = function() {
-    var fn = employArr[0].firstName;
-    var sn = employArr[0].lastName;
-    var wy = employArr[0].workYears;
+// Employee.prototype.details = function() {
+//     var fn = employArr[0].firstName;
+//     var sn = employArr[0].lastName;
+//     var wy = employArr[0].workYears;
 
-    this.firstname = fn;
-    this.surname = sn;
-    this.years = wy;
+//     this.firstname = fn;
+//     this.surname = sn;
+//     this.years = wy;
 
-    return new Employee(fn, sn, wy)
-};
+//     return new Employee(fn, sn, wy)
+// };
 
-let bob = new Employee().details();
-console.log(bob.firstname + " " + bob.surname + " has worked here for " + bob.years + " years.")
+// let bob = new Employee().details();
+// console.log(bob.firstname + " " + bob.surname + " has worked here for " + bob.years + " years.")
 
 // Menu items price calculator
 
+class MenuItems {
+    #menuItem1
+    #menuItem1Price
+    #amount1
+    #menuItem2
+    #menuItem2Price
+    #amount2
+    constructor(menuItem1, menuItem1Price, amount1, menuItem2, menuItem2Price, amount2) {
+        this.#menuItem1 = menuItem1;
+        this.#menuItem1Price = menuItem1Price;
+        this.#amount1 = amount1;
+        this.#menuItem2 = menuItem2;
+        this.#menuItem2Price = menuItem2Price;
+        this.#amount2 = amount2;
+    }
 
+    calculateTotal() {
+        if (this.#amount1 > 0 && this.#amount2 > 0) {
+            return (this.#amount1 * this.#menuItem1Price) + (this.#amount2 * this.#menuItem2Price);
+        }
+    }
+    get getTotal() {
+        print("You ordered", this.#menuItem1, "and", this.#menuItem2 + ", your total is R" + this.calculateTotal());
+    }
+}
+
+let bagleAndCoffee = new MenuItems("Bagles", 18, 3, "Coffee", 33, 2);
+bagleAndCoffee.getTotal;
+
+let burgersAndFries = new MenuItems("Burgers", 120, 2, "fries", 21, 3);
+burgersAndFries.getTotal;
+
+let milkshakesAndIcecream = new MenuItems("Milkshakes", 56, 2, "Ice-Cream", 17, 4);
+milkshakesAndIcecream.getTotal;
 
 // PROJECT QUIZ
 
@@ -272,4 +305,6 @@ console.log(bob.firstname + " " + bob.surname + " has worked here for " + bob.ye
 3. Inheritance
 
 4. All true.
+
+5. B
 */

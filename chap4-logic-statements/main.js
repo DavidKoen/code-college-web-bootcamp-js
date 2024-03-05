@@ -48,17 +48,17 @@
 
 // Friend checker game
 
-let yourFriend = prompt("Name one friend.").toLowerCase();
+// let yourFriend = prompt("Name one friend.").toLowerCase();
 
-switch(yourFriend) {
-    case "nick":
-    alert("We have the same friend.");
-    break;
+// switch(yourFriend) {
+//     case "nick":
+//     alert("We have the same friend.");
+//     break;
 
-    default:
-    alert("I don't know them.");
-    break;
-}
+//     default:
+//     alert("I don't know them.");
+//     break;
+// }
 
 // Rock Paper Scissors game
 
