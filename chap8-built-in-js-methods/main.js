@@ -82,7 +82,7 @@ the number, and the numbers after that are interpreted as decimals. */
 
 /* This global method executes the argument as a JavaScript statement. This means
 that it will just do whatever JavaScript is inserted in there, as if that JavaScript were
-written directly on the spot instead of eval(). 
+written directly on the spot instead of eval().
 
 Yes, this is probably the worst thing security-wise you can
 do in most situations. You are going to execute external code. This code could be
@@ -131,13 +131,38 @@ filtered array. If the Boolean has the value false, the element will be left out
 
 // console.log(filterArr.every(checkString));
 
+// EXCERCISE 8.2
+
+// let firstArray = ["Laurence", "Mike", "Larry", "Kim", "Joanne", "Laurence", "Mike", "Laurence", "Mike", "Laurence", "Mike"];
+
+// let newArray = firstArray.filter((value, index, array) => {
+//     console.log(value, index, array.indexOf(value));
+//     return array.indexOf(value) === index;
+// });
+
+// console.log(newArray);
+
+// EXCERCISE 8.3
+
+// let numArray = [5, 10, 15];
+
+// let anonyFunct = numArray.map(function(value) {
+//         return value * 2;
+//     });
+
+// console.log(anonyFunct);
+
+// let arrowFunctionArray = numArray.map(value => value * 2); // Sometimes you'll need to change all the values in an array. With the array map() method you can do just that
+
+// console.log(arrowFunctionArray)
+
 ////////////////////////////////////////////////////////////////////////////
 
 // String methods
 
 /* Combining strings
 
-// let s1 = "Hello ";  
+// let s1 = "Hello ";
 
 // let s2 = "JavaScript";
 
@@ -216,43 +241,183 @@ it will only return Cre. */
 
 // Replacing parts of the string
 
-let hi = "Hi buddy";
+// let hi = "Hi buddy";
 
-let new_hi = hi.replace("buddy", "Pascal");
+// let new_hi = hi.replace("buddy", "Pascal");
 
-console.log(new_hi);
+// console.log(new_hi);
 
-//////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////////////
 
-let s3 = "hello hello";
+// let s3 = "hello hello";
 
-let new_s3 = s3.replaceAll("hello", "oh");
+// let new_s3 = s3.replaceAll("hello", "oh");
 
-console.log(new_s3);
+// console.log(new_s3);
 
-/* This logs oh hello. If we wanted to replace all the occurences, we could use the
-replaceAll() method. This will replace all occurrences with the specified new string */
+// /* This logs oh hello. If we wanted to replace all the occurences, we could use the
+// replaceAll() method. This will replace all occurrences with the specified new string */
 
-// Date methods
+// EXCERCISE 8.4
 
-// Methods to get and set the elements of a date
+// let brokenString = "thIs will be capiTalized for each word";
 
-let d = new Date();
+// function capWords(string) {
+//     string = string.toLowerCase();
+//     let emptyArray = [];
+//     let words = string.split(" ");
+//     words.forEach(word => {
+//         let temp = word.slice(0, 1).toUpperCase() + word.slice(1);
+//         emptyArray.push(temp);
+//     });
+//     return emptyArray.join(" ");
+// };
 
-console.log("Day of week:", d.getDay());
-console.log("Day of month:", d.getDate());
-console.log("Month:", d.getMonth());
-console.log("Year:", d.getFullYear());
-console.log("Seconds:", d.getSeconds());
-console.log("Milliseconds:", d.getMilliseconds());
-console.log("Time:", d.getTime());
+// console.log(capWords(brokenString));
 
-// Parsing dates
+// EXCERCISE 8.5
 
-let d1 = Date.parse("June 5, 2021");
+// let string = "I love JavaScript".toLowerCase();
 
-console.log(d1);
+// let vowels = ["a", "e", "i", "o", "u"];
 
-/* With the built-in parse() method we can parse epoch dates from strings. It accepts
-many formats, but again you will have to be careful with the order of days and
-months */
+// vowels.forEach((letter, index) => {
+//     string = string.replaceAll(letter, index);
+// })
+
+// console.log(string);
+
+// EXCERCISE 8.6
+
+// console.log(Math.ceil(5.7));
+
+// console.log(Math.floor(5.7));
+
+// console.log(Math.round(5.7));
+
+// console.log(Math.random());
+
+// console.log(Math.floor(Math.random()*11)); // 0-10
+
+// console.log(Math.floor(Math.random()*10)+1); // 1-10;
+
+// console.log(Math.floor(Math.random()*100)+1); // 1-100;
+
+// function ranNum(min, max) {
+//     return Math.floor(Math.random() * (max - min + 1)) + min;
+// }
+// for (let x = 0; x < 100; x++) {
+//     console.log(ranNum(1, 100));
+// }
+
+// // Date methods
+
+// // Methods to get and set the elements of a date
+
+// let d = new Date();
+
+// console.log("Day of week:", d.getDay());
+// console.log("Day of month:", d.getDate());
+// console.log("Month:", d.getMonth());
+// console.log("Year:", d.getFullYear());
+// console.log("Seconds:", d.getSeconds());
+// console.log("Milliseconds:", d.getMilliseconds());
+// console.log("Time:", d.getTime());
+
+// // Parsing dates
+
+// let d1 = Date.parse("June 5, 2021");
+
+// console.log(d1);
+
+// /* With the built-in parse() method we can parse epoch dates from strings. It accepts
+// many formats, but again you will have to be careful with the order of days and
+// months */
+
+// EXCERCISE 8.7
+
+// let currentDateTime = new Date();
+
+// let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+// let day = currentDateTime.getDate();
+
+// let year = currentDateTime.getFullYear();
+
+// let month = currentDateTime.getMonth();
+
+// let finishedDate = months[month] + " " + day + " " + year;
+
+// console.log(finishedDate);
+
+// CHAPTER PROJECT
+
+// Word scrambler 
+
+// let myWord = "Diavd";
+
+// function scramble(val) {
+//     let tempString = "";
+
+//     for (let i = 0; i < val.length; i++) {
+//         let randomWord = Math.floor(Math.random() * val.length);
+//         tempString += val[randomWord];
+//         val = val.substr(0, randomWord) + val.substr(randomWord + 1);
+//     }
+//     return tempString;
+// }
+
+// console.log(scramble(myWord));
+
+// Countdown timer
+
+const endDate = "Aug 24 1994";
+
+function countdown() {
+    const total = Date.parse(endDate) - new Date();
+    const days = Math.floor(total / (1000 * 60 * 60 * 24));
+    const hrs = Math.floor((total / (1000 * 60 * 60)) % 24);
+    const mins = Math.floor((total / 1000 / 60) % 60);
+    const secs = Math.floor((total / 1000) % 60);
+    return {
+        days,
+        hrs,
+        mins,
+        secs
+    };
+}
+
+function update() {
+    const temp = countdown();
+    let output = "";
+    for (const property in temp) {
+        output += (property + ": " + temp[property]);
+    }
+    console.log(output);
+    setTimeout(update, 1000);
+}
+
+update();
+
+// PROJECT QUIZ 
+
+/*
+1. a
+
+2. 4
+
+3. [
+    "Hii",
+    "hi",
+    "hello",
+    "Hii",
+    "hi",
+    "hi World",
+    "Hi"
+]
+
+4. [
+    "hi",
+    "hi World"
+]
+*/
