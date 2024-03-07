@@ -1,0 +1,23 @@
+.hide {
+    display: none;
+}
+
+.square {
+    height: 100px;
+    width: 100px;
+    background-color: yellow;
+}
+
+.square.blue {
+    background-color: blue;
+}
+
+div {
+    height: 100px;
+    width: 100px;
+    background-color: yellow;
+}
+
+.circle {
+    border-radius: 50%;
+}
