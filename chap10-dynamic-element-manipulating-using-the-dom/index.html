@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
     <title>Document</title>
 
     <style>
-        .active {
+        /* PROJECT 1 STYLES */
+        /* .active {
             display: block !important;
         }
 
@@ -19,6 +20,26 @@
         .title {
             font-size: 1.5em;
             background-color: #ddd;
+        } */
+
+        /* PROJECT 3 STYLES */
+        .gameArea {
+            text-align: center;
+            font-size: 2em;
+        }
+
+        .box,
+        .boxD {
+            display: inline-block;
+            padding: 5px;
+        }
+
+        .boxE {
+            display: inline-block;
+            width: 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1.5em;
         }
     </style>
 
@@ -95,14 +116,24 @@
 
     <!-- CHAPTER PROJECT: Interactive voting system -->
 
-    <div id="message">Complete JavaScript Course</div>
+    <!-- <div id="message">Complete JavaScript Course</div>
     <div>
         <input type="text" id="addFriend">
         <input type="button" id="addNew" value="Add Friend">
     </div>
-    <table id="output"></table>
+    <table id="output"></table> -->
+
+    <!-- CHAPTER PROJECT: Hangman -->
+
+    <div class="gameArea">
+        <div class="score"> </div>
+        <div class="puzzle"></div>
+        <div class="letters"></div>
+        <button>Start Game</button>
+    </div>
 
     <script src="main.js">
+        
 
     </script>
 </body>

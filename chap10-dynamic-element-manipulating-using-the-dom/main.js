@@ -200,29 +200,247 @@ adding them to the DOM. */
 
 // Collapsible accordion component
 
-let titles = document.querySelectorAll(".title");
+// let titles = document.querySelectorAll(".title");
 
-let text = document.querySelectorAll(".myText");
+// let text = document.querySelectorAll(".myText");
 
-titles.forEach((el) => {
-    el.addEventListener("click", (e) => {
-        remover();
-        el.nextElementSibling.classList.toggle("active");
-    })
-});
+// titles.forEach((el) => {
+//     el.addEventListener("click", (e) => {
+//         remover();
+//         el.nextElementSibling.classList.toggle("active");
+//     })
+// });
 
-function remover() {
-    text.forEach((ele) => {
-        ele.classList.remove("active");
-    })
-};
+// function remover() {
+//     text.forEach((ele) => {
+//         ele.classList.remove("active");
+//     })
+// };
 
 // Interactive voting system
 
-let myArray = ["Ben", "James", "Marine"];
+// window.onload = build;
 
-let bttn = document.getElementById("addNew");
+// const myArray = ["Laurence", "Mike", "John", "Larry"];
 
-let input = document.getElementById("addFriend");
+// const message = document.getElementById("message");
 
-bttn.addEventListener("click", passInfo);
+// const addNew = document.getElementById("addNew");
+
+// const newInput = document.getElementById("addFriend");
+
+// const output = document.getElementById("output");
+
+// addNew.onclick = function () {
+
+//     const newFriend = newInput.value;
+
+//     adder(newFriend, myArray.length, 0);
+
+//     myArray.push(newFriend);
+
+// }
+
+// function build() {
+
+//     myArray.forEach((item, index) => {
+
+//         adder(item, index, 0);
+
+//     });
+// }
+
+// function adder(name, index, counter) {
+
+//     const tr = document.createElement("tr");
+
+//     const td1 = document.createElement("td");
+
+//     td1.classList.add("box");
+
+//     td1.textContent = index + 1;
+
+//     const td2 = document.createElement("td");
+
+//     td2.textContent = name;
+
+//     const td3 = document.createElement("td");
+
+//     td3.textContent = counter;
+
+//     tr.append(td1);
+
+//     tr.append(td2);
+
+//     tr.append(td3);
+
+//     tr.onclick = function () {
+
+//         console.log(tr.lastChild);
+
+//         let val = Number(tr.lastChild.textContent);
+
+//         val++;
+
+//         tr.lastChild.textContent = val;
+
+//     }
+
+//     output.appendChild(tr);
+// }
+
+// Hangman
+
+// const game = { cur: "", solution: "", puzz: [], total: 0 };
+
+// const myWords = ["learn Javascript", "learn html", "learn css"];
+
+// const score = document.querySelector(".score");
+
+// const puzzle = document.querySelector(".puzzle");
+
+// const letters = document.querySelector(".letters");
+
+// const btn = document.querySelector("button");
+
+// btn.addEventListener("click", startGame);
+
+// function startGame() {
+
+//     if (myWords.length > 0) {
+
+//         btn.style.display = "none";
+
+//         game.puzz = [];
+
+//         game.total = 0;
+
+//         game.cur = myWords.shift();
+
+//         game.solution = game.cur.split("");
+
+//         builder();
+
+//     } else {
+
+//         score.textContent = "No More Words.";
+
+//     }
+// }
+
+// function createElements(elType, parentEle, output, cla) {
+
+//     const temp = document.createElement(elType);
+
+//     temp.classList.add("boxE");
+
+//     parentEle.append(temp);
+
+//     temp.textContent = output;
+
+//     return temp;
+
+// }
+
+// function updateScore() {
+
+//     score.textContent = `Total Letters Left : ${game.total}`;
+
+//     if (game.total <= 0) {
+
+//         console.log("game over");
+
+//         score.textContent = "Game Over";
+
+//         btn.style.display = "block";
+//     }
+// }
+
+// function builder() {
+
+//     letters.innerHTML = "";
+
+//     puzzle.innerHTML = "";
+
+//     game.solution.forEach((lett) => {
+
+//         let div = createElements("div", puzzle, "-", "boxE");
+
+//         if (lett == " ") {
+
+//             div.style.borderColor = "white";
+
+//             div.textContent = " ";
+
+//         } else {
+
+//             game.total++;
+
+//         }
+
+//         game.puzz.push(div);
+
+//         updateScore();
+
+//     });
+
+//     for (let i = 0; i < 26; i++) {
+
+//         let temp = String.fromCharCode(65 + i);
+
+//         let div = createElements("div", letters, temp, "box");
+
+//         let checker = function (e) {
+
+//             div.style.backgroundColor = "#ddd";
+
+//             div.classList.remove("box");
+
+//             div.classList.add("boxD");
+
+//             div.removeEventListener("click", checker);
+
+//             checkLetter(temp);
+
+//         }
+
+//         div.addEventListener("click", checker);
+
+//     }
+// }
+
+// function checkLetter(letter) {
+
+//     console.log(letter);
+
+//     game.solution.forEach((ele, index) => {
+
+//         if (ele.toUpperCase() == letter) {
+
+//             game.puzz[index].textContent = letter;
+
+//             game.total--;
+
+//             updateScore();
+
+//         };
+//     });
+// }
+
+// PROJECT QUIZ
+
+/*
+
+1. It will change the div's text to the following: "Hello <br> World"
+
+2. 
+Hello
+ World
+
+3. It will input the value of the input field into the output div's child element.
+
+4. Three
+
+5. btn.removeEventListener();
+
+*/
