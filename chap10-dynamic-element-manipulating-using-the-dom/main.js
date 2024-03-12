@@ -291,141 +291,141 @@ adding them to the DOM. */
 
 // Hangman
 
-// const game = { cur: "", solution: "", puzz: [], total: 0 };
+const game = { cur: "", solution: "", puzz: [], total: 0 };
 
-// const myWords = ["learn Javascript", "learn html", "learn css"];
+const myWords = ["learn Javascript", "learn html", "learn css"];
 
-// const score = document.querySelector(".score");
+const score = document.querySelector(".score");
 
-// const puzzle = document.querySelector(".puzzle");
+const puzzle = document.querySelector(".puzzle");
 
-// const letters = document.querySelector(".letters");
+const letters = document.querySelector(".letters");
 
-// const btn = document.querySelector("button");
+const btn = document.querySelector("button");
 
-// btn.addEventListener("click", startGame);
+btn.addEventListener("click", startGame);
 
-// function startGame() {
+function startGame() {
 
-//     if (myWords.length > 0) {
+    if (myWords.length > 0) {
 
-//         btn.style.display = "none";
+        btn.style.display = "none";
 
-//         game.puzz = [];
+        game.puzz = [];
 
-//         game.total = 0;
+        game.total = 0;
 
-//         game.cur = myWords.shift();
+        game.cur = myWords.shift();
 
-//         game.solution = game.cur.split("");
+        game.solution = game.cur.split("");
 
-//         builder();
+        builder();
 
-//     } else {
+    } else {
 
-//         score.textContent = "No More Words.";
+        score.textContent = "No More Words.";
 
-//     }
-// }
+    }
+}
 
-// function createElements(elType, parentEle, output, cla) {
+function createElements(elType, parentEle, output, cla) {
 
-//     const temp = document.createElement(elType);
+    const temp = document.createElement(elType);
 
-//     temp.classList.add("boxE");
+    temp.classList.add("boxE");
 
-//     parentEle.append(temp);
+    parentEle.append(temp);
 
-//     temp.textContent = output;
+    temp.textContent = output;
 
-//     return temp;
+    return temp;
 
-// }
+}
 
-// function updateScore() {
+function updateScore() {
 
-//     score.textContent = `Total Letters Left : ${game.total}`;
+    score.textContent = `Total Letters Left : ${game.total}`;
 
-//     if (game.total <= 0) {
+    if (game.total <= 0) {
 
-//         console.log("game over");
+        console.log("game over");
 
-//         score.textContent = "Game Over";
+        score.textContent = "Game Over";
 
-//         btn.style.display = "block";
-//     }
-// }
+        btn.style.display = "block";
+    }
+}
 
-// function builder() {
+function builder() {
 
-//     letters.innerHTML = "";
+    letters.innerHTML = "";
 
-//     puzzle.innerHTML = "";
+    puzzle.innerHTML = "";
 
-//     game.solution.forEach((lett) => {
+    game.solution.forEach((lett) => {
 
-//         let div = createElements("div", puzzle, "-", "boxE");
+        let div = createElements("div", puzzle, "-", "boxE");
 
-//         if (lett == " ") {
+        if (lett == " ") {
 
-//             div.style.borderColor = "white";
+            div.style.borderColor = "white";
 
-//             div.textContent = " ";
+            div.textContent = " ";
 
-//         } else {
+        } else {
 
-//             game.total++;
+            game.total++;
 
-//         }
+        }
 
-//         game.puzz.push(div);
+        game.puzz.push(div);
 
-//         updateScore();
+        updateScore();
 
-//     });
+    });
 
-//     for (let i = 0; i < 26; i++) {
+    for (let i = 0; i < 26; i++) {
 
-//         let temp = String.fromCharCode(65 + i);
+        let temp = String.fromCharCode(65 + i);
 
-//         let div = createElements("div", letters, temp, "box");
+        let div = createElements("div", letters, temp, "box");
 
-//         let checker = function (e) {
+        let checker = function (e) {
 
-//             div.style.backgroundColor = "#ddd";
+            div.style.backgroundColor = "#ddd";
 
-//             div.classList.remove("box");
+            div.classList.remove("box");
 
-//             div.classList.add("boxD");
+            div.classList.add("boxD");
 
-//             div.removeEventListener("click", checker);
+            div.removeEventListener("click", checker);
 
-//             checkLetter(temp);
+            checkLetter(temp);
 
-//         }
+        }
 
-//         div.addEventListener("click", checker);
+        div.addEventListener("click", checker);
 
-//     }
-// }
+    }
+}
 
-// function checkLetter(letter) {
+function checkLetter(letter) {
 
-//     console.log(letter);
+    console.log(letter);
 
-//     game.solution.forEach((ele, index) => {
+    game.solution.forEach((ele, index) => {
 
-//         if (ele.toUpperCase() == letter) {
+        if (ele.toUpperCase() == letter) {
 
-//             game.puzz[index].textContent = letter;
+            game.puzz[index].textContent = letter;
 
-//             game.total--;
+            game.total--;
 
-//             updateScore();
+            updateScore();
 
-//         };
-//     });
-// }
+        };
+    });
+}
 
 // PROJECT QUIZ
 
@@ -437,7 +437,7 @@ adding them to the DOM. */
 Hello
  World
 
-3. It will input the value of the input field into the output div's child element.
+3. Does nothing.
 
 4. Three
 
