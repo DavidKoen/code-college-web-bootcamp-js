@@ -75,13 +75,49 @@ using the name of the parameter. */
 
 // Local storage
 
-let message = "Hello storage!";
+/* The localStorage object is a property of the window object that we have seen before.
+There are a few methods on the localStorage object that we need to know to use
+it effectively. First of all, we need to be able to get and set key-value pairs on local
+storage. We use setItem() whenever we want to save something and getItem()
+whenever we want to retrieve the value later */
 
-localStorage.setItem("example", message);
+// let message = "Hello storage!";
 
-if (localStorage.getItem("example")) {
-    document.getElementById("stored").innerHTML = localStorage.getItem("example");
-}
+// localStorage.setItem("example", message);
+
+// if (localStorage.getItem("example")) {
+//     document.getElementById("stored").innerHTML = localStorage.getItem("example");
+// }
+
+// /* This code snippet outputs Hello storage! on the page. You can add items to
+// storage by specifying a key and a value with the setItem method. You can access
+// localStorage directly or via the window object. Here we specify example as the key
+// and Hello storage! as the value and save it to local storage. Then we check whether
+// the example key is set in local storage and output the data by writing it to the
+// innerHTML of the div with the ID stored.
+
+// If you go back to your code and turn off the setItem() line before loading the page
+// a second time, it still will output that value, since the information was stored when
+// running the script the first time and never got deleted. Local storage doesn't expire,
+// though it can be manually deleted. */
+
+// /* We can also retrieve a key using the index. This is useful whenever we need to loop
+// through the key-value pairs and we don't know the names of the keys. This is how to
+// retrieve a key by index: */
+
+// window.localStorage.key(0);
+
+// // In order to get the associated value, we can do this:
+
+// window.localStorage.getItem(window.localStorage.key(0));
+
+// // We can also remove key-value pairs like this:
+
+// window.localStorage.removeItem("example");
+
+// // And we can remove all the key-value pairs from the local storage in one call:
+
+// window.localStorage.clear();
 
 // JSON: JavaScript Object Notation
 
@@ -90,3 +126,205 @@ format. We saw this notation when we were creating our objects in JavaScript;
 however, JSON doesn't mean JavaScript objects, it's just a way of representing data
 using a similar format as JavaScript objects. It can also be easily converted to a
 JavaScript object. */
+
+// EXCERCISE 12.8
+
+// Creating JS Objects in a JSON format.
+
+// let footballClubs = [
+//     {
+//         "club": "Liverpool FC",
+//         "UCLtitles": 6,
+//     },
+//     {
+//         "club": "Real Madrid",
+//         "UCLtitles": 13,
+//     }
+// ];
+
+// function honors() {
+
+//     for (let i = 0; i < footballClubs.length; i++) {
+//         console.log(footballClubs[i].club + " has won " + footballClubs[i].UCLtitles + " UCL titles.");
+//     }
+// }
+
+// honors();
+
+// EXCERCISE 12.9
+
+// Parsing JSON
+
+// let players = [
+//     {
+//         "name": "VVD",
+//         "position": "Defender",
+//     },
+//     {
+//         "name": "Alisson",
+//         "position": "Keeper",
+//     },
+// ];
+
+// let jsonPlayers = JSON.stringify(players); // This makes the JS object a string, which is how JSON can accept it.
+// console.log(jsonPlayers);
+
+// let jsPlayers = JSON.parse(jsonPlayers); // This makes the string into JS object.
+// console.log(jsPlayers);
+
+// CHAPTER PROJECT: Email extractor
+
+// let bttn = document.getElementsByTagName("button")[0];
+
+// let txtOne = document.getElementById("first");
+
+// let txtTwo = document.getElementById("second");
+
+// let emailFormat = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/g
+
+// bttn.addEventListener("click", firstTxtArea);
+
+// let addresses = [];
+
+// let uniqueAddresses = new Set();
+
+// let duplicateAddresses = [];
+
+// function firstTxtArea() {
+
+//     if (txtOne.value.match(emailFormat)) {  
+//         addresses.push(txtOne.value);
+//     } else {
+//         alert("That is not an email address.");
+//     };
+
+//     check()
+
+// };
+
+// function check() {
+
+//     addresses.forEach(item => {
+
+//         if (uniqueAddresses.has(item)) {
+//           duplicateAddresses.push(item);
+//         } else {
+//           uniqueAddresses.add(item);
+//         }
+
+//       });
+
+// }
+
+// CHAPTER PROJECT: Form validator
+
+// const myForm = document.querySelector("form");
+// const inputs = document.querySelectorAll("input");
+// const errors = document.querySelectorAll(".error");
+// const required = ["email", "userName"];
+// myForm.addEventListener("submit", validation);
+// function validation(e) {
+//     let data = {};
+//     e.preventDefault();
+//     errors.forEach(function (item) {
+//         item.classList.add("hide");
+//     });
+//     let error = false;
+//     inputs.forEach(function (el) {
+//         let tempName = el.getAttribute("name");
+//         if (tempName != null) {
+//             el.style.borderColor = "#ddd";
+//             if (el.value.length == 0 && required.includes(tempName)) {
+//                 addError(el, "Required Field", tempName);
+//                 error = true;
+//             }
+//             if (tempName == "email") {
+//                 let exp = /([A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.[A-Za-z0-9]+)\w+/;
+//                 let result = exp.test(el.value);
+//                 if (!result) {
+//                     addError(el, "Invalid Email", tempName);
+//                     error = true;
+//                 }
+//             }
+//             if (tempName == "password") {
+//                 let exp = /[A-Za-z0-9]+$/;
+//                 let result = exp.test(el.value);
+//                 if (!result) {
+//                     addError(el, "Only numbers and Letters", tempName);
+//                     error = true;
+//                 }
+//                 if (!(el.value.length > 3 && el.value.length < 9)) {
+//                     addError(el, "Needs to be between 3-8 characters", tempName);
+//                     error = true;
+//                 }
+//             }
+//             data[tempName] = el.value;
+//         }
+//     });
+//     if (!error) {
+//         myForm.submit();
+//     }
+// }
+
+// function addError(el, mes, fieldName) {
+//     let temp = el.nextElementSibling;
+//     temp.classList.remove("hide");
+//     temp.textContent = fieldName.toUpperCase() + " " + mes;
+//     el.style.borderColor = "red";
+//     el.focus();
+// }
+
+// CHAPTER PROJECT: Simple math quiz
+
+// const app = function () {
+//     const game = {};
+//     const val1 = document.querySelector(".val1");
+//     const val2 = document.querySelector(".val2");
+//     const output = document.querySelector(".output");
+//     const answer = document.querySelector("input");
+//     function init() {
+//         document.querySelector("button").addEventListener("click", checker);
+//         loadQuestion();
+//     }
+//     function ranValue(min, max) {
+//         return Math.floor(Math.random() * (max - min + 1) + min);
+//     }
+//     function loadQuestion() {
+//         game.val1 = ranValue(1, 100);
+//         game.val2 = ranValue(1, 100);
+//         game.answer = game.val1 + game.val2;
+//         val1.textContent = game.val1;
+//         val2.textContent = game.val2;
+//     }
+//     function checker() {
+//         let bg = answer.value == game.answer ? "green" : "red";
+//         output.innerHTML +=
+//             `<div style="color:${bg}">${game.val1} + ${game.val2} = ${game.answer} (${answer.value})</div>`;
+//         answer.value = "";
+//         loadQuestion();
+//     }
+//     return {
+//         init: init
+//     };
+// }();
+// document.addEventListener('DOMContentLoaded', app.init);
+
+// PROJECT QUIZ
+
+/*
+1. " enjoy"
+
+2. No. They are part of the window document.
+
+4. hello world
+The a const in the function is a global variable.
+
+5. An error. The 'use strict' will prevent the a variable from being created since a 
+var type was not called when creating the variable.
+
+6.
+a
+c
+b
+The setTimeout function falls after the called functions in the picking order.
+*/

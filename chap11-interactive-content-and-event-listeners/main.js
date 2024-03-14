@@ -142,9 +142,109 @@ it to get information from a web page. */
 //     myInput.value = "";
 // }
 
-
-
-
-
 // CHAPTER PROJECTS
 
+// Build your own analytics
+
+// let trackArray = [];
+
+// let one = document.getElementById("box-one").addEventListener("click", storeClicks);;
+// let two = document.getElementById("box-two").addEventListener("click", storeClicks);;
+// let three = document.getElementById("box-three").addEventListener("click", storeClicks);;
+
+// function storeClicks(e) {
+//     trackArray += e.target.id + " ";
+//     console.log(trackArray);
+// }
+
+// Star rating system
+
+// const starsUL = document.querySelector(".stars");
+
+// const output = document.querySelector(".output");
+
+// const stars = document.querySelectorAll(".star");
+
+// stars.forEach((star, index) => {
+//     star.starValue = (index + 1);
+//     star.addEventListener("click", starRate);
+// });
+
+// function starRate(e) {
+//     output.innerHTML = `You Rated this ${e.target.starValue} stars`;
+
+//     stars.forEach((star, index) => {
+//         if (index < e.target.starValue) {
+//             star.classList.add("orange");
+//         } else {
+//             star.classList.remove("orange");
+//         }
+//     });
+// }
+
+// Mouse position tracker
+
+// const ele = document.querySelector(".holder");
+
+// ele.addEventListener("mouseover", (e) => { e.target.classList.add("active"); });
+
+// ele.addEventListener("mouseout", (e) => { e.target.classList.remove("active"); });
+
+// ele.addEventListener("mousemove", coordin);
+
+// function coordin() {
+//     let html = "X:" + event.clientX + " | Y:" + event.clientY;
+//     document.getElementById("output").innerHTML = html;
+// };
+
+// Box clicker speed test
+
+const output = document.querySelector('.output');
+
+const message = document.querySelector('.message');
+
+message.textContent = "Press to Start";
+
+const box = document.createElement('div');
+
+const game = {
+    timer: 0,
+    start: null
+};
+
+box.classList.add('box');
+
+output.append(box);
+
+box.addEventListener('click', (e) => {
+    box.textContent = "";
+    box.style.display = 'none';
+    game.timer = setTimeout(addBox, ranNum(3000));
+    if (!game.start) {
+        message.textContent = 'Loading....';
+    } else {
+        const cur = new Date().getTime();
+        const dur = (cur - game.start) / 1000;
+        message.textContent = `It took ${dur} seconds to click`;
+    }
+});
+
+function addBox() {
+    message.textContent = 'Click it...';
+    game.start = new Date().getTime();
+    box.style.display = 'block';
+    box.style.left = ranNum(450) + 'px';
+    box.style.top = ranNum(450) + 'px';
+}
+
+function ranNum(max) {
+    return Math.floor(Math.random() * max);
+}
+
+// PROJECT QUIZ
+
+/* 
+1. console.dir(window);
+
+2. It cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
+*/
