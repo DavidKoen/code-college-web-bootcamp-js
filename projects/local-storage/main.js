@@ -1,70 +1,92 @@
-/*
+const localTodosContainer = document.getElementById('local-storage-todos-container');
 
-Session Storage Object?
-The session storage object (window.sessionStorage) stores data that persists for only one session of an opened tab.
+const localInputEle = document.getElementById('local-storage-todo-input-ele');
 
-Local Storage Object?
-The local storage object (window.localStorage) stores data that persists even when users close 
-their browser tab (or window).
+const localAddTaskBtn = document.getElementById('local-storage-add-task-btn');
 
-////////////////////////
+const sessionTodosContainer = document.getElementById('session-storage-todos-container');
 
-What are Web Storage’s Built-In Interfaces?
+const sessionInputEle = document.getElementById('session-storage-todo-input-ele');
 
-The web storage built-in interfaces are the recommended tools for reading and manipulating a browser’s 
-sessionStorage and localStorage objects.
+const sessionAddTaskBtn = document.getElementById('session-storage-add-task-btn');
 
-The six (6) built-in interfaces are:
+function createTodoLiElements(todoArray, storeType) {
+    return todoArray.map((i, index) => {
+        const liElement = document.createElement('li');
+        const checkboxEle = document.createElement('input');
+        const labelEle = document.createElement('label');
 
-setItem()
-key()
-getItem()
-length
-removeItem()
-clear()
+        checkboxEle.setAttribute('type', 'checkbox');
+        checkboxEle.setAttribute('id', `${storeType}-chbx-${index}`);
+        labelEle.setAttribute('for', `${storeType}-chbx-${index}`);
 
-////////////////////////////////
+        if (i.checked) {
+            checkboxEle.checked = true;
+            labelEle.classList.add('todo-task-done');
+        }
 
-What is web storage’s setItem() method?
-The setItem() method stores its key and value arguments inside the specified web storage object.
+        storeType === 'local' && checkboxEle.addEventListener('click', (e) => {
+            const todoArr = JSON.parse(localStorage.getItem('codesweetlyStore'));
+            todoArr[e.target.getAttribute('id').split('-')[2]].checked = !todoArr[e.target.getAttribute('id').split('-')[2]].checked;
+            localStorage.setItem('codesweetlyStore', JSON.stringify(todoArr));
+            labelEle.classList.toggle('todo-task-done');
+        });
 
-webStorageObject.setItem("color", "Pink");
+        storeType === 'session' && checkboxEle.addEventListener('click', (e) => {
+            const todoArr = JSON.parse(sessionStorage.getItem('codesweetlyStore'));
+            todoArr[e.target.getAttribute('id').split('-')[2]].checked = !todoArr[e.target.getAttribute('id').split('-')[2]].checked;
+            sessionStorage.setItem('codesweetlyStore', JSON.stringify(todoArr));
+            labelEle.classList.toggle('todo-task-done');
+        });
 
-webStorageObject represents the storage object (localStorage or sessionStorage) you wish to manipulate.
-key is the first argument accepted by setItem(). It is a required string argument representing 
-the name of the web storage property you want to create or update.
-value is the second argument accepted by setItem(). It is a required string argument 
-specifying the value of the key you are creating or updating.
+        labelEle.textContent = i.text;
 
-/////////////////////////
+        liElement.append(checkboxEle, labelEle);
 
-How to store serialized objects in the web storage
+        return liElement;
+    });
+}
 
-sessionStorage.setItem("myBio", JSON.stringify({ name: "Oluwatobi" }));
+window.addEventListener('load', (() => {
+    const localTodoArray = JSON.parse(localStorage.getItem('codesweetlyStore')) || [];
+    const localTodoLiElements = createTodoLiElements(localTodoArray, 'local');
+    const sessionTodoArray = JSON.parse(sessionStorage.getItem('codesweetlyStore')) || [];
+    const sessionTodoLiElements = createTodoLiElements(sessionTodoArray, 'session');
+    localTodosContainer.replaceChildren(...localTodoLiElements);
+    sessionTodosContainer.replaceChildren(...sessionTodoLiElements);
+})()
+);
 
-We used JSON.stringify() to convert the object to JSON before storing it in the web storage.
+localAddTaskBtn.addEventListener('click', () => {
+    if (localInputEle.value.match(/^\w/)) {
+        const currentTodoArray = JSON.parse(localStorage.getItem('codesweetlyStore')) || [];
+        const newTodoArray = [
+            ...currentTodoArray,
+            {
+                checked: false,
+                text: localInputEle.value
+            },
+        ];
+        const todoLiElements = createTodoLiElements(newTodoArray, 'local');
+        localStorage.setItem('codesweetlyStore', JSON.stringify(newTodoArray));
+        localTodosContainer.replaceChildren(...todoLiElements);
+        localInputEle.value = '';
+    }
+});
 
-///////////////////////////////////
-
-What is web storage’s key() method?
-The key() method retrieves a specified web storage item’s name (key).
-
-// Store carColor: "Pink" inside the browser's local storage object:
-localStorage.setItem("carColor", "Pink");
-
-// Store pcColor: "Yellow" inside the local storage object:
-localStorage.setItem("pcColor", "Yellow");
-
-// Store laptopColor: "White" inside the local storage object:
-localStorage.setItem("laptopColor", "White");
-
-// Get the name of the item at index 1:
-localStorage.key(1);
-
-///////////////////////////////////
-
-What is web storage’s getItem() method?
-The getItem() method retrieves the value of a specified web storage item.
-
-
-*/
+sessionAddTaskBtn.addEventListener('click', () => {
+    if (sessionInputEle.value.match(/^\w/)) {
+        const currentTodoArray = JSON.parse(sessionStorage.getItem('codesweetlyStore')) || [];
+        const newTodoArray = [
+            ...currentTodoArray,
+            {
+                checked: false,
+                text: sessionInputEle.value
+            },
+        ];
+        const todoLiElements = createTodoLiElements(newTodoArray, 'session');
+        sessionStorage.setItem('codesweetlyStore', JSON.stringify(newTodoArray));
+        sessionTodosContainer.replaceChildren(...todoLiElements);
+        sessionInputEle.value = '';
+    }
+});
