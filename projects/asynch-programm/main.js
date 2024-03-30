@@ -45,21 +45,56 @@ Once the data is retrieved, we use await again to wait and parse the retrieved d
 And then finally, we log the data to the console.
 */
 
-let bttn = document.querySelector("button");
+let bttn = document.getElementById("first");
+
+let anotherBttn = document.getElementById("second");
 
 let div = document.querySelector("div");
 
-bttn.addEventListener("click", start);
+bttn.addEventListener("click", fetchFirstProduct);
 
-function start() {
-  new Promise((resolve) => {
-    resolve("<p>One</p>");
-  })
-    .then((v) => {
-      div.innerHTML += v;
-      return "<p>Two</p>"
-    })
-    .then((v) => {
-      div.innerHTML += v;
-    })
+anotherBttn.addEventListener("click", fetchSecondProduct);
+
+async function fetchFirstProduct() {
+
+  console.log("Started request…");
+
+  try {
+    const response = await fetch("https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json");
+
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log(data[0].name);
+
+  }
+
+  catch (error) {
+    console.error(`Could not get products: ${error}`);
+  }
+
+};
+
+async function fetchSecondProduct() {
+
+  console.log("Started request…");
+
+  try {
+    const response = await fetch("https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json");
+
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log(data[1].name);
+
+  }
+
+  catch (error) {
+    console.error(`Could not get products: ${error}`);
+  }
+
 };
