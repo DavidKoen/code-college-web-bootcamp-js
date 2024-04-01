@@ -51,37 +51,6 @@ const displayTasks = () => {
         tasksDiv.appendChild(taskInnerDiv);
     }
 
-    //tasks completed
-    tasks = document.querySelectorAll(".task");
-    tasks.forEach((element, index) => {
-        element.onclick = () => {
-            //local storage update
-            if (element.classList.contains("completed")) {
-                updateStorage(element.id.split("_")[0], element.innerText, false);
-            } else {
-                updateStorage(element.id.split("_")[0], element.innerText, true);
-            }
-        };
-    });
-
-    //Edit Tasks
-    editTasks = document.getElementsByClassName("edit");
-    Array.from(editTasks).forEach((element, index) => {
-        element.addEventListener("click", (e) => {
-            //Stop propogation to outer elements (if removed when we click delete eventually rhw click will move to parent)
-            e.stopPropagation();
-            //disable other edit buttons when one task is being edited
-            disableButtons(true);
-            //update input value and remove div
-            let parent = element.parentElement;
-            newTaskInput.value = parent.querySelector("#taskname").innerText;
-            //set updateNote to the task that is being edited
-            updateNote = parent.id;
-            //remove task
-            parent.remove();
-        });
-    });
-
     //Delete Tasks
     deleteTasks = document.getElementsByClassName("delete");
     Array.from(deleteTasks).forEach((element, index) => {
